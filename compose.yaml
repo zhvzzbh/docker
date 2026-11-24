@@ -1,0 +1,22 @@
+services:
+  servico:
+    build: .
+    image: so-trabalho4:1.0
+    container_name: sdl-servico
+    env_file: .env                      # configuração externa (não versionada)
+    ports:
+      - "${HOST_PORT:-8080}:${APP_PORT:-8080}"
+    restart: on-failure:5               # reinicia só se sair com código != 0
+    # --- isolamento e privilégios mínimos ---
+    privileged: false
+    read_only: true                     # sistema de arquivos raiz somente leitura
+    tmpfs:
+      - /tmp
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    # --- limites de recursos ---
+    mem_limit: 128m
+    cpus: 0.5
+    pids_limit: 100
