@@ -1,0 +1,21 @@
+$ docker inspect -f 'User={{.Config.User}} Privileged={{.HostConfig.Privileged}} ReadOnlyRootfs={{.HostConfig.ReadonlyRootfs}} CapDrop={{.HostConfig.CapDrop}}' sdl-servico
+
+Error response from daemon: The command 'docker' could not be found in this WSL 2 distro.
+We recommend to activate the WSL integration in Docker Desktop settings.
+For details about using Docker Desktop with WSL 2, visit: https://docs.docker.com/go/wsl2/
+
+$ docker exec sdl-servico id
+Error response from daemon: The command 'docker' could not be found in this WSL 2 distro.
+We recommend to activate the WSL integration in Docker Desktop settings.
+For details about using Docker Desktop with WSL 2, visit: https://docs.docker.com/go/wsl2/
+
+$ docker top sdl-servico -o user,pid,ppid,args
+Error response from daemon: The command 'docker' could not be found in this WSL 2 distro.
+We recommend to activate the WSL integration in Docker Desktop settings.
+For details about using Docker Desktop with WSL 2, visit: https://docs.docker.com/go/wsl2/
+
+$ docker exec sdl-servico env | grep -E 'APP_|LOG_LEVEL|ENABLE_'
+Error response from daemon: The command 'docker' could not be found in this WSL 2 distro.
+We recommend to activate the WSL integration in Docker Desktop settings.
+For details about using Docker Desktop with WSL 2, visit: https://docs.docker.com/go/wsl2/
+
